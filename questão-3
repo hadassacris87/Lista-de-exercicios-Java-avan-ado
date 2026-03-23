@@ -1,0 +1,63 @@
+<html>
+<body>
+
+<h2>Calculadora da Oficina</h2>
+
+<form id="form">
+
+  <input type="number" id="n1" placeholder="Número 1">
+  <input type="number" id="n2" placeholder="Número 2">
+
+  <select id="op">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+
+  <button type="submit">Calcular</button>
+
+</form>
+
+<p id="res"></p>
+
+<script>
+function calcular(n1, n2, op) {
+  var resultado;
+
+  if (op == "+") {
+    resultado = n1 + n2;
+  } else if (op == "-") {
+    resultado = n1 - n2;
+  } else if (op == "*") {
+    resultado = n1 * n2;
+  } else if (op == "/") {
+    if (n2 == 0) {
+      return "Erro: divisão por 0";
+    }
+    resultado = n1 / n2;
+  }
+
+  return resultado;
+}
+
+var form = document.getElementById("form");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  
+  var n1 = Number(document.getElementById("n1").value);
+  var n2 = Number(document.getElementById("n2").value);
+  var op = document.getElementById("op").value;
+
+  
+  var res = calcular(n1, n2, op);
+
+  
+  document.getElementById("res").innerHTML = res;
+});
+</script>
+
+</body>
+</html>
