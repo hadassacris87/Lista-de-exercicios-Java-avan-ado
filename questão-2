@@ -1,0 +1,16 @@
+function verificar() {
+
+  var idade = prompt("Digite sua idade:");
+  var resultado = document.getElementById("resultado");
+
+  if (idade >= 18) {
+    resultado.innerHTML = "Entrada permitida";
+    resultado.style.color = "green";
+  } else {
+    resultado.innerHTML = "Entrada proibida";
+    resultado.style.color = "red";
+  }
+
+}
+<button onclick="verificar()">Verificar</button>
+<p id="resultado"></p>
