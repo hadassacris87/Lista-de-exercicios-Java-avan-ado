@@ -1,1 +1,1 @@
-# Lista-de-exercicios-Java-avançado
+# Lista-de-exercicios-JS-avançado
