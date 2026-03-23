@@ -1,0 +1,103 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Missões</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #missaoInput {
+      width: 70%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #addButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #fff;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    li.concluida {
+      text-decoration: line-through;
+      color: gray;
+      background-color: #d9ffd9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lista de Missões</h1>
+
+  <input type="text" id="missaoInput" placeholder="Digite sua missão aqui">
+  <button id="addButton">Adicionar</button>
+
+  <ul id="listaMissoes"></ul>
+
+  <script>
+    
+    const inputMissao = document.getElementById('missaoInput');
+    const botaoAdicionar = document.getElementById('addButton');
+    const listaMissoes = document.getElementById('listaMissoes');
+
+   
+    function adicionarMissao() {
+      const textoMissao = inputMissao.value.trim();
+
+      if (textoMissao === "") {
+        alert("Digite uma missão antes de adicionar!");
+        return;
+      }
+
+     
+      const li = document.createElement('li');
+      li.textContent = textoMissao;
+
+      
+      li.addEventListener('click', function() {
+        li.classList.toggle('concluida');
+      });
+
+    
+      listaMissoes.appendChild(li);
+
+     
+      inputMissao.value = "";
+    }
+
+   
+    botaoAdicionar.addEventListener('click', adicionarMissao);
+
+   
+    inputMissao.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        adicionarMissao();
+      }
+    });
+  </script>
+
+</body>
+</html>
