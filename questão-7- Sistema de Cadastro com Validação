@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Cadastro</title>
+</head>
+<body>
+
+  <h2>Cadastro</h2>
+
+  <form id="form">
+    Nome:<br>
+    <input type="text" id="nome"><br>
+    <span id="erroNome" style="color:red;"></span><br>
+
+    Email:<br>
+    <input type="text" id="email"><br>
+    <span id="erroEmail" style="color:red;"></span><br><br>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <script>
+    var form = document.getElementById("form");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var nome = document.getElementById("nome").value;
+      var email = document.getElementById("email").value;
+
+      var erroNome = document.getElementById("erroNome");
+      var erroEmail = document.getElementById("erroEmail");
+
+      
+      erroNome.innerHTML = "";
+      erroEmail.innerHTML = "";
+
+      
+      if (nome == "") {
+        erroNome.innerHTML = "Preencha o nome";
+      }
+
+      if (email.indexOf("@") == -1) {
+        erroEmail.innerHTML = "Email inválido";
+      }
+
+      
+      if (nome != "" && email.indexOf("@") != -1) {
+        alert("Cadastro feito!");
+      }
+    });
+  </script>
+
+</body>
+</html>
