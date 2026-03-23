@@ -1,0 +1,70 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Tabuada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+    }
+    .tabuada {
+      margin-top: 20px;
+      display: inline-block;
+      text-align: left;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    .tabuada p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Gerador de Tabuada</h1>
+  <p>Digite um número e veja a tabuada de 1 a 10:</p>
+  
+  <input type="number" id="numero" placeholder="Digite um número">
+  <button onclick="gerarTabuada()">Gerar Tabuada</button>
+
+  <div id="resultado" class="tabuada"></div>
+
+  <script>
+   
+    function gerarTabuada() {
+      
+      const numero = parseInt(document.getElementById('numero').value);
+
+     
+      const resultado = document.getElementById('resultado');
+
+     
+      resultado.innerHTML = '';
+
+     
+      if (isNaN(numero)) {
+        resultado.innerHTML = '<p style="color:red;">Por favor, digite um número válido!</p>';
+        return;
+      }
+
+     
+      for (let i = 1; i <= 10; i++) {
+        const linha = document.createElement('p'); 
+        linha.textContent = `${numero} x ${i} = ${numero * i}`;
+        resultado.appendChild(linha); 
+      }
+    }
+  </script>
+
+</body>
+</html>
