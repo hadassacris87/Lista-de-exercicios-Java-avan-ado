@@ -1,0 +1,68 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Votação</title>
+</head>
+<body>
+
+  <h2>Votação - Representante da Turma</h2>
+
+  
+  <button onclick="votar1()">Ana</button>
+  <button onclick="votar2()">Bruno</button>
+  <button onclick="votar3()">Carlos</button>
+
+  <br><br>
+
+ 
+  <p id="votos1">Ana: 0 votos</p>
+  <p id="votos2">Bruno: 0 votos</p>
+  <p id="votos3">Carlos: 0 votos</p>
+
+  <button onclick="resultado()">Ver resultado</button>
+
+  <p id="ganhador"></p>
+
+  <script>
+    
+    let votosAna = 0;
+    let votosBruno = 0;
+    let votosCarlos = 0;
+
+    
+    function votar1() {
+      votosAna++;
+      document.getElementById("votos1").innerText = "Ana: " + votosAna + " votos";
+    }
+
+    function votar2() {
+      votosBruno++;
+      document.getElementById("votos2").innerText = "Bruno: " + votosBruno + " votos";
+    }
+
+    function votar3() {
+      votosCarlos++;
+      document.getElementById("votos3").innerText = "Carlos: " + votosCarlos + " votos";
+    }
+
+    
+    function resultado() {
+
+      
+      if (votosAna > votosBruno && votosAna > votosCarlos) {
+        document.getElementById("ganhador").innerText = "Ana está ganhando!";
+      } 
+      else if (votosBruno > votosAna && votosBruno > votosCarlos) {
+        document.getElementById("ganhador").innerText = "Bruno está ganhando!";
+      } 
+      else if (votosCarlos > votosAna && votosCarlos > votosBruno) {
+        document.getElementById("ganhador").innerText = "Carlos está ganhando!";
+      } 
+      else {
+        document.getElementById("ganhador").innerText = "Empate!";
+      }
+    }
+  </script>
+
+</body>
+</html>
