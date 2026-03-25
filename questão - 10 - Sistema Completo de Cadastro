@@ -1,0 +1,58 @@
+  <script>
+    function validar(event) {
+      event.preventDefault(); 
+
+      let nome = document.getElementById("nome").value;
+      let email = document.getElementById("email").value;
+      let idade = Number(document.getElementById("idade").value);
+      let senha = document.getElementById("senha").value;
+      let confirmar = document.getElementById("confirmar").value;
+
+      let valido = true;
+      document.getElementById("erroNome").innerText = "";
+      document.getElementById("erroEmail").innerText = "";
+      document.getElementById("erroIdade").innerText = "";
+      document.getElementById("erroSenha").innerText = "";
+      document.getElementById("erroConfirmar").innerText = "";
+      document.getElementById("mensagem").innerText = "";
+
+      if (nome == "") {
+        document.getElementById("erroNome").innerText = "Nome obrigatório";
+        valido = false;
+      }
+
+      if (email == "") {
+        document.getElementById("erroEmail").innerText = "Email obrigatório";
+        valido = false;
+      }
+
+      if (idade < 18) {
+        document.getElementById("erroIdade").innerText = "Deve ter 18 anos ou mais";
+        valido = false;
+      }
+
+      if (senha.length < 8) {
+        document.getElementById("erroSenha").innerText = "Mínimo 8 caracteres";
+        valido = false;
+      }
+
+      if (senha != confirmar) {
+        document.getElementById("erroConfirmar").innerText = "Senhas diferentes";
+        valido = false;
+      }
+
+      if (valido == true) {
+        let msg = document.getElementById("mensagem");
+        msg.innerText = "Cadastro realizado com sucesso!";
+        msg.className = "sucesso";
+        document.getElementById("nome").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("idade").value = "";
+        document.getElementById("senha").value = "";
+        document.getElementById("confirmar").value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
